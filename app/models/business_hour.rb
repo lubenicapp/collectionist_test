@@ -38,13 +38,14 @@ class ValidateHourFormat < ActiveModel::Validator
     hours = JSON.parse(record.opening_period)['days'].values.flatten
     hours.each do |h|
       record.errors.add :hour, "hour is invalid" unless
-        h.match?(/^[0-2][0-9]:[0-2][0-9]$/)
+        h.match?(/^[0-2][0-9]:[0-5][0-9]$/)
     end
   rescue JSON::ParserError
     false
   end
 end
 
+# validate if period is composed of two entries
 class ValidateHourPeriod < ActiveModel::Validator
   def validate(record)
     hours = JSON.parse(record.opening_period)['days'].values
