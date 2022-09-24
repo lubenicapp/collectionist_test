@@ -19,6 +19,8 @@ Steps:
 - `rails s` to run the webserver
 -  visit localhost:3000/shops/1/business_hours' 
 
+you can also run `rspec --format d` to run tests
+
 ## Explanation on models and code 
 
 The Shop model is associated with BusinessHour with a on-to-many relation.
@@ -26,7 +28,7 @@ The reason is a shop may have different business hours, depending on the season,
 yet it is not implemented 
 
 The BusinessHour model store the data as a string which will be parsed as a JSON
-This allows easy modification on the format or data stored, like timezone
+This allows easy modification on the format or data stored, like adding timezone
 
 ## language support
 
