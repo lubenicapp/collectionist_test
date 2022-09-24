@@ -77,3 +77,7 @@ end
 
 gem "rubocop", "~> 1.36"
 gem "relaxed-rubocop", "~> 2.5"
+
+gem "geocoder", "~> 1.8"
+
+gem "rails-i18n", "~> 7.0"
