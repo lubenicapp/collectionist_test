@@ -5,5 +5,4 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get '/shops/:id/business_hours', to: 'shop#hours'
-
 end

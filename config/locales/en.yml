@@ -31,3 +31,5 @@
 
 en:
   hello: "Hello world"
+  date:
+    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]

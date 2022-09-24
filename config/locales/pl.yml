@@ -1,0 +1,4 @@
+pl:
+  hello: "Witaj świecie"
+  date:
+    day_names: [Niedziela, Poniedzialek, Wtorek, Sroda, Czwartek, Piatek, Sobota]
