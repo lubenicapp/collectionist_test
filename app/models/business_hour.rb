@@ -45,6 +45,18 @@ class ValidateHourFormat < ActiveModel::Validator
   end
 end
 
+class ValidateHourPeriod < ActiveModel::Validator
+  def validate(record)
+    hours = JSON.parse(record.opening_period)['days'].values
+    hours.each do |h|
+      record.errors.add :period, "period is invalid" unless
+        h.size == 2
+    end
+  rescue JSON::ParserError
+    false
+  end
+end
+
 class BusinessHour < ApplicationRecord
   include ActiveModel::Validations
 
