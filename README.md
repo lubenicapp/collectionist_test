@@ -1,24 +1,48 @@
-# README
+# The Collectionist technical assignment
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is a technical test for a job interview at The Collecionist.
 
-Things you may want to cover:
+The subject can be seen in the root directory './subject.pdf'
 
-* Ruby version
+## Run the project 
 
-* System dependencies
+Requirements :
+- ruby 3.1.2
+- rails 7
+- bundle
 
-* Configuration
+Steps:
+- `bundle install` to install the required gems
+- `rails db:migrate` to setup the database schema
+- `rails db:seed` to populate the database with few records
 
-* Database creation
+- `rails s` to run the webserver
+-  visit localhost:3000/shops/1/business_hours' 
 
-* Database initialization
+## Explanation on models and code 
 
-* How to run the test suite
+The Shop model is associated with BusinessHour with a on-to-many relation.
+The reason is a shop may have different business hours, depending on the season, holidays..
+yet it is not implemented 
 
-* Services (job queues, cache servers, search engines, etc.)
+The BusinessHour model store the data as a string which will be parsed as a JSON
+This allows easy modification on the format or data stored, like timezone
 
-* Deployment instructions
+## language support
 
-* ...
+I use Geocoder for user localisation and then set the I18n locale to the user country.
+By default or if invalid result, it is set to english.
+
+French, English and Polish are supported for the moment
+
+
+## Improvements
+
+The BusinessHour validations rule are not strict enough.
+The regex checks only if the hours is a number but an invalid input like "28:70" would be considered valid
+
+The erb view is ugly
+
+
+
+
