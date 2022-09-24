@@ -5,6 +5,7 @@
 
 ### Added
     - Shop model
+    - BusinessHour model
 
 ### Changed
 
