@@ -71,5 +71,9 @@ group :test do
   gem "webdrivers"
 end
 
+group :development, :test do
+  gem "rspec-rails"
+end
+
 gem "rubocop", "~> 1.36"
 gem "relaxed-rubocop", "~> 2.5"
