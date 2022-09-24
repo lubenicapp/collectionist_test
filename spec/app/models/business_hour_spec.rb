@@ -50,4 +50,11 @@ RSpec.describe BusinessHour do
       expect(business_hour).not_to be_valid
     end
   end
+
+  context 'when opening_period are invalid' do
+    let(:opening_period) { File.read('data/wrong_period.json') }
+    it 'is invalid' do
+      expect(business_hour).not_to be_valid
+    end
+  end
 end

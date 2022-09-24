@@ -1,3 +1,31 @@
-<%= t('hello') %>
+<% today = Date.today.wday %>
+<% days = I18n.t('date.day_names') %>
 
-<%= @hours %>
+<div>
+  <table>
+    <tr>
+      <td> <b> <%= "#{I18n.t('schedule')} : " %></b> </td>
+      <td> <b> <%= days[today] %> </b> </td>
+      <% if @hours['days'][today.to_s]&.empty? %>
+        <td> <b> <%= I18n.t('closed') %>  </b> </td>
+      <% else %>
+        <td> <b>
+          <%= @hours['days'][today.to_s].map { |p| "#{p.first} - #{p.last}"}.join(', ') %>
+        </b> </td>
+      <% end %>
+    </tr>
+    <% (1..6).each do |index| %>
+    <tr>
+      <td></td>
+      <td> <%= days[(today + index) % 7] %>  </td>
+      <% if @hours['days'][((today+index) % 7).to_s]&.empty? %>
+        <td> <%= I18n.t('closed') %></td>
+      <% else %>
+        <td>
+          <%= @hours['days'][((today+index) % 7).to_s].map { |p| "#{p.first} - #{p.last}"}.join(', ') %>
+        </td>
+      <% end %>
+    </tr>
+    <% end %>
+  </table>
+</div>

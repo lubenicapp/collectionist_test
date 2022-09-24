@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+
+shop_1 = Shop.new(name: 'lidl')
+shop_1.save
+business_hours = BusinessHour.new
+business_hours.opening_period = File.read('data/default_opening_period.json')
+business_hours.shop_id = shop_1.id
+business_hours.save
+
+puts "shop id : #{shop_1.id}"
+puts "visit : localhost:3000/shops/#{shop_1.id}/business_hours"

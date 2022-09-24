@@ -1,4 +1,6 @@
 pl:
   hello: "Witaj świecie"
+  closed: "Zamknięte"
+  schedule: "harmonogram"
   date:
     day_names: [Niedziela, Poniedzialek, Wtorek, Sroda, Czwartek, Piatek, Sobota]
